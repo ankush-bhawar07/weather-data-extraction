@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            background-color: #2196F3;
+        }
+        .reqData{
+            text-align: center;
+        }
+        .reqData .enetrLocation{
+            border: none;
+            outline: none;
+            border-bottom: 1px solid #ffffff;
+            background-color: #2196F3;
+        }
+        .reqData .btn{
+            padding: 10px;
+            width:100px;
+            margin-top: 25px;
+            margin-bottom: 25px;
+        }
+        .resData {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            background-color: #2196F3;
+            padding: 10px;
+            width: 70%;
+            margin-left: 15%;
+            margin-top: 25px;
+        }
+        .resData-item {
+            background-color: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(0, 0, 0, 0.8);
+            /* padding: 20px;
+            font-size: 30px; */
+            text-align: center;
+        }
+        .resData-item i{
+            padding: 10px;
+            font-size: 30px;
+        }
+        .resData-item p{
+            font-size: 15px;
+        }
+
+        @media only screen and (max-width: 768px) {
+        /* For mobile phones: */
+        .resData{
+            grid-template-columns: 1fr;
+
+        }
+  }
+    </style>
+</head>
+<body>
+    <div class="container reqData">
+        <h2> {{ date_time }}</h2>
+        <h3>{{err}} </h3>
+        <form method="POST" action = "/send_data">
+            <input class="enetrLocation"  type="text" name = "location">
+            <i class="fas fa-search-location"></i>
+            <br>
+            <!-- <input class="btn btn-primary" type="submit" value="Search"> -->
+        </form>
+    </div>
+
+    <div class="container resData">
+        <div class="resData-item">
+            <i class="fas fa-cloud-sun-rain"></i>
+            <p> {{ temp_city }} </p>
+        </div>
+
+        <div class="resData-item">
+            <i class="fas fa-cloud-sun-rain"></i>
+            <p> {{ weather_desc }} </p>
+        </div>
+
+        <div class="resData-item">
+            <i class="fas fa-cloud-sun-rain"></i>
+            <p> {{ hmdt }}% </p>
+        </div>
+
+        <div class="resData-item">
+            <i class="fas fa-cloud-sun-rain"></i>
+            <p> {{ wind_spd }}kmph </p>
+        </div>
+    </div>
+</body>
+<script src="https://kit.fontawesome.com/0a275318ff.js" crossorigin="anonymous"></script>
+</html>
